@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Tanjoshoku - The 366 Birthday Colors</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;1,400&family=Manrope:wght@500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .text-vertical {
+            writing-mode: vertical-rl;
+        }
+        .washi-texture {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3External%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .ink-touch {
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+        }
+        .ink-touch:active {
+            transform: scale(0.95);
+            filter: blur(1px);
+            opacity: 0.7;
+        }
+        .wabi-sabi-grain {
+            position: relative;
+        }
+        .wabi-sabi-grain::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvJ8b_kmxPG7VZM2Qwu0gphpbvq671dKPy1q_kjXAA7a5Lk5vSY14TSf4NMLeeTNwcZ4QjEKcXEj7RZ5RORvVmJ6hD0v6zXt5GzLZJb3k0B1zDg62L_J4cWHoWc3mHRtxiB8AYkIADEzAeCp68e7MkWacqDZB48cWbEqVR0r_QITYCN6_JB9ONk0qGQHCE76by_dZLmXr0PM88kCdbbByHq2DrQo6n4j83pFi1yNQ25mD7w7B_qq1Vu29UfhwAZHI5ESJkDU4l5H0u');
+        }
+        
+        #physics-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .fade-out {
+            opacity: 0 !important;
+            transition: opacity 0.5s ease;
+        }
+        
+        .fade-in {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+            transition: opacity 1s ease;
+        }
+    </style>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-fixed": "#e4e2dd",
+                        "surface-container-high": "#ebe7e6",
+                        "background": "#fdf8f8",
+                        "season-winter": "#6B8FAF",
+                        "season-spring": "#4A8870",
+                        "season-summer": "#C0392B",
+                        "season-autumn": "#7B3B8A",
+                        "surface-dim": "#ddd9d8",
+                        "on-surface": "#1c1b1b",
+                        "surface-bright": "#fdf8f8",
+                        "primary": "#000000",
+                        "on-primary": "#ffffff",
+                        "surface": "#fdf8f8",
+                        "surface-base": "#F9F7F2",
+                        "ink-subtle": "#4A4A4A",
+                        "secondary": "#5e5e5b",
+                    },
+                    fontFamily: {
+                        "label-caps": ["Manrope"],
+                        "body-editorial": ["Newsreader"],
+                        "headline-serif": ["Noto Serif JP"],
+                        "display-large": ["Noto Serif JP"],
+                        "data-ui": ["Manrope"]
+                    },
+                    fontSize: {
+                        "label-caps": ["12px", {"lineHeight": "1.4", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-editorial": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-serif": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "display-large": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "data-ui": ["14px", {"lineHeight": "1.2", "fontWeight": "500"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface-base text-on-surface font-body-editorial min-h-screen flex flex-col m-0 p-0 overflow-x-hidden">
+    
+    <div class="fixed inset-0 washi-texture z-[100]"></div>
+    
+
+
+    <!-- Canvas for Matter.js -->
+    <div id="physics-canvas"></div>
+
+    <!-- LANDING SCREEN -->
+    <main id="landing-view" class="relative flex-grow flex flex-col md:flex-row min-h-screen items-center justify-center pt-24 px-8 overflow-hidden z-[10]">
+        
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-tr from-surface-base via-surface-container-low to-secondary-fixed/30 mix-blend-multiply"></div>
+            <div class="absolute -top-[20%] -right-[10%] w-[80%] h-[120%] rounded-full bg-season-spring/5 blur-[120px]"></div>
+            <div class="absolute -bottom-[10%] -left-[10%] w-[60%] h-[100%] rounded-full bg-season-autumn/5 blur-[100px]"></div>
+        </div>
+        
+        <!-- Left Content -->
+        <div id="landing-left-content" class="relative z-10 w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left mb-16 md:mb-0">
+            <div class="flex flex-col gap-2">
+                <h2 class="text-vertical font-headline-serif text-5xl md:text-7xl tracking-[0.2em] mb-4 md:mb-0 opacity-90">誕生色</h2>
+                <h1 class="font-headline-serif text-display-large md:text-8xl tracking-tighter leading-none mb-6">Tanjoshoku</h1>
+                <p class="font-label-caps text-label-caps text-secondary uppercase tracking-[0.3em] mb-12">The 366 Birthday Colors</p>
+            </div>
+            <div class="max-w-md">
+                <p class="font-body-editorial text-body-editorial text-on-surface/80 italic leading-relaxed mb-8">
+                    Discover the traditional Japanese hue that defines the day of your birth. A meditation on heritage, nature, and the passage of time.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Content -->
+        <div id="landing-right-content" class="relative z-10 w-full md:w-1/2 flex flex-col items-center justify-center">
+            <div class="bg-white/40 backdrop-blur-xl border border-white/60 p-12 md:p-16 w-full max-w-lg shadow-sm rounded-lg">
+                <div class="mb-12 text-center">
+                    <span class="font-label-caps text-[10px] tracking-widest text-secondary uppercase mb-2 block">Entry Ritual</span>
+                    <h3 class="font-headline-serif text-headline-serif">Select Your Date</h3>
+                </div>
+                
+                <!-- Vanilla Date Picker -->
+                <div class="flex items-center justify-center gap-4 h-32 overflow-hidden relative mb-12">
+                    <div class="flex flex-col items-center">
+                        <select id="month-select" class="font-headline-serif text-4xl bg-transparent border-b border-on-surface/10 py-2 w-24 text-center cursor-pointer appearance-none outline-none">
+                            <!-- Populated by JS -->
+                        </select>
+                        <span class="font-label-caps text-[10px] mt-2 text-secondary uppercase">Month</span>
+                    </div>
+                    <span class="font-headline-serif text-4xl opacity-20 select-none">/</span>
+                    <div class="flex flex-col items-center">
+                        <select id="day-select" class="font-headline-serif text-4xl bg-transparent border-b border-on-surface/10 py-2 w-24 text-center cursor-pointer appearance-none outline-none">
+                            <!-- Populated by JS -->
+                        </select>
+                        <span class="font-label-caps text-[10px] mt-2 text-secondary uppercase">Day</span>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <button id="discover-btn" class="w-full py-5 bg-primary text-on-primary font-label-caps tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-700 flex items-center justify-center gap-3">
+                    Discover your color
+                    <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- PROFILE SCREEN (Hidden initially) -->
+    <main id="profile-view" class="fixed inset-0 z-[50] flex flex-col md:flex-row min-h-screen opacity-0 pointer-events-none">
+        <!-- Left half (Color display) -->
+        <section id="profile-color-panel" class="w-full md:w-1/2 min-h-[50vh] md:min-h-screen flex flex-col justify-end p-8 md:p-16 relative overflow-hidden wabi-sabi-grain transition-colors duration-1000">
+            <div class="absolute inset-0 opacity-20 mix-blend-overlay">
+                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGZ6eCzH6w3YblRVL59mDDyfzB7Tm3hfGKA1am6HRv1UOTPKnJ_M6P3yA5Vs18CNQD9i0gNETEnvaFpzqyH3y_YTDZLGBqCHLWuNR9nGawS4SnGuqnYmVKaKP0U2R0lf0x9iIOdihr90h07S0rqNxRc4ep9S8Yvkns657_l0_diqSaw8xZM-yvbg_Vep4EkcNahLT8w62FdVrbW9yj09iTznvjuxxTBu7T211Y7VO3XcBY3jEF9N-Usgz8YzXRg8wcUdI0gHQMhHbc"/>
+            </div>
+            <div class="relative z-10 text-inherit">
+                <p class="font-label-caps text-label-caps opacity-70 mb-4">PERSONAL AURA COLOR</p>
+                <h1 id="profile-jp-name" class="font-display-large text-display-large mb-2">水浅葱</h1>
+                <p id="profile-en-name" class="font-headline-serif text-headline-serif opacity-90 italic">Water Asagi</p>
+            </div>
+            <div class="absolute top-12 right-12 opacity-40 font-serif vertical-rl hidden md:block" style="writing-mode: vertical-rl;">
+                <span id="profile-date-en">WINTER SOLSTICE 12.23</span>
+            </div>
+        </section>
+        
+        <!-- Right half (Details) -->
+        <section class="w-full md:w-1/2 bg-surface p-8 md:p-24 flex flex-col justify-center overflow-y-auto">
+            <div class="max-w-md mx-auto md:mx-0">
+                <div class="mb-12">
+                    <span id="profile-season" class="inline-block px-3 py-1 border border-on-surface/10 rounded-full font-label-caps text-[10px] text-on-surface/60 mb-6 uppercase">SEASON: WINTER</span>
+                    <div class="space-y-6">
+                        <h2 id="profile-features" class="font-headline-serif text-headline-serif text-on-surface leading-snug">
+                            An aura of serene resilience and the quiet clarity of melting ice.
+                        </h2>
+                        <p id="profile-desc" class="font-body-editorial text-body-editorial text-ink-subtle italic">
+                            Those born under the color possess a temperament like the transition between seasons—fluid, yet rooted in deep historical strength.
+                        </p>
+                    </div>
+                </div>
+                
+                <div id="profile-keywords" class="flex flex-wrap gap-2 mb-16">
+                    <!-- Keywords injected here -->
+                </div>
+                
+                <div class="grid grid-cols-2 gap-12 mb-16">
+                    <div>
+                        <p class="font-label-caps text-[10px] text-on-surface/40 uppercase mb-2">Hex Code</p>
+                        <p id="profile-hex" class="font-data-ui text-data-ui text-on-surface">#6B8FAF</p>
+                    </div>
+                    <div>
+                        <p class="font-label-caps text-[10px] text-on-surface/40 uppercase mb-2">RGB Value</p>
+                        <p id="profile-rgb" class="font-data-ui text-data-ui text-on-surface">107, 143, 175</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-4 pt-8 border-t border-on-surface/5">
+                    <button class="flex-1 px-8 py-4 bg-transparent border border-on-surface/20 font-label-caps text-label-caps text-on-surface hover:bg-on-surface hover:text-surface transition-colors duration-500 flex items-center justify-center gap-2" onclick="window.location.reload()">
+                        <span class="material-symbols-outlined text-lg" data-icon="refresh">refresh</span>
+                        DISCOVER ANOTHER
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <!-- Load Matter.js via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.20.0/matter.min.js"></script>
+    <script src="app.js" type="module"></script>
+</body>
+</html>
