@@ -4695,7 +4695,7 @@
       "features_jp_clean": "幸せな雰囲気をつくり出すロマンチスト",
       "features_en_clean": "A romantic who creates a happy atmosphere.",
       "color_meaning_jp": "色言葉：洗練・友人・ほほえみ",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: sophistication, friendship, smile",
       "keywords_en": [],
       "keywords_jp": [
         "洗練",
@@ -4742,7 +4742,7 @@
       "features_jp_clean": "天才的感性表現を持ち合わせた努力家",
       "features_en_clean": "A hard worker with a genius-level ability to express themselves.",
       "color_meaning_jp": "色言葉：詩的情緒・頭脳明晰・純粋",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Poetic sentiment, intellectual clarity, purity",
       "keywords_en": [],
       "keywords_jp": [
         "詩的情緒",
@@ -4789,7 +4789,7 @@
       "features_jp_clean": "トレンドを読み取る感覚にすぐれた人",
       "features_en_clean": "Someone with a keen sense for reading trends.",
       "color_meaning_jp": "色言葉：思いやり・無邪気・想像力と技巧",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Compassion, innocence, imagination and skill",
       "keywords_en": [],
       "keywords_jp": [
         "思いやり",
@@ -4836,7 +4836,7 @@
       "features_jp_clean": "温かいもてなしに満ちた人",
       "features_en_clean": "A person full of warm hospitality",
       "color_meaning_jp": "色言葉：情緒・社交的・新たな目標",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Emotion, sociability, new goals",
       "keywords_en": [],
       "keywords_jp": [
         "情緒",
@@ -4883,7 +4883,7 @@
       "features_jp_clean": "全身に注意が行き届いたベストドレッサー",
       "features_en_clean": "Features: A well-dressed person with attention to every detail.",
       "color_meaning_jp": "色言葉：人づきあい・秘めた情熱・洗練",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Interpersonal relationships, hidden passion, refinement",
       "keywords_en": [],
       "keywords_jp": [
         "人づきあい",
@@ -4929,8 +4929,8 @@
       "features_en": "Characteristics: People who seek beauty while being detached from reality.",
       "features_jp_clean": "現実から遊離して美しさを求める人",
       "features_en_clean": "People who seek beauty while being detached from reality.",
-      "color_meaning_jp": "特徴：現実から遊離して美しさを求める人",
-      "color_meaning_en": "",
+      "color_meaning_jp": "色の意味：無邪気さ、明瞭な視界、洗練",
+      "color_meaning_en": "Color meaning: Innocent, clear line of sight, sophistication",
       "keywords_en": [],
       "keywords_jp": [
         "特徴：現実から遊離して美しさを求める人"
@@ -4975,7 +4975,7 @@
       "features_jp_clean": "いろいろなことに興味を抱いて工夫する努力家",
       "features_en_clean": "A hardworking person who is interested in many things and tries to be creative.",
       "color_meaning_jp": "色言葉：多才・内向性・創意工夫",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Versatility, introversion, ingenuity",
       "keywords_en": [],
       "keywords_jp": [
         "多才",
@@ -5022,7 +5022,7 @@
       "features_jp_clean": "ほのぼのとした存在感を漂わせる人",
       "features_en_clean": "A person who exudes a warm and gentle presence.",
       "color_meaning_jp": "色言葉：希望・用意周到・敬愛",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color words: hope, careful preparation, respect",
       "keywords_en": [],
       "keywords_jp": [
         "希望",
@@ -5069,7 +5069,7 @@
       "features_jp_clean": "与えられた状況に応じて行動できる人",
       "features_en_clean": "A person who can act according to the given situation.",
       "color_meaning_jp": "色言葉：スポーツ感覚・流れる動作・高い知見",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Athletic sense, fluid movements, high level of knowledge",
       "keywords_en": [],
       "keywords_jp": [
         "スポーツ感覚",
@@ -5116,7 +5116,7 @@
       "features_jp_clean": "若い世代の感性を究め尽くした先駆者",
       "features_en_clean": "A pioneer who has fully grasped the sensibilities of the younger generation.",
       "color_meaning_jp": "色言葉：澄んだ瞳・清純・緻密な志向",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Athletic sense, fluid movements, high level of knowledge",
       "keywords_en": [],
       "keywords_jp": [
         "澄んだ瞳",
@@ -5163,7 +5163,7 @@
       "features_jp_clean": "世事に通じた堅実な職人肌",
       "features_en_clean": "A reliable craftsman with a good grasp of worldly affairs.",
       "color_meaning_jp": "色言葉：努力家・リアリスト・陽気",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Hard worker, realist, cheerful",
       "keywords_en": [],
       "keywords_jp": [
         "努力家",
@@ -5210,7 +5210,7 @@
       "features_jp_clean": "伝統を重んじる技術ある自信家",
       "features_en_clean": "A skilled and confident individual who values ​​tradition.",
       "color_meaning_jp": "色言葉：伝統・技巧・主張",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Tradition, skill, assertiveness",
       "keywords_en": [],
       "keywords_jp": [
         "伝統",
@@ -5257,7 +5257,7 @@
       "features_jp_clean": "多感で豊かな生活経験を持つユーモア人",
       "features_en_clean": "A humorous person with a rich and sensitive life experience.",
       "color_meaning_jp": "色言葉：楽観的・明るさ・哲学的",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: optimism, cheerfulness, philosophical",
       "keywords_en": [],
       "keywords_jp": [
         "楽観的",
@@ -5304,7 +5304,7 @@
       "features_jp_clean": "人の魂をとりこにする天女のような人",
       "features_en_clean": "A celestial maiden who captivates people's souls.",
       "color_meaning_jp": "色言葉：美貌・しなやかさ・思いやり",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Beauty, grace, compassion",
       "keywords_en": [],
       "keywords_jp": [
         "美貌",
@@ -5351,7 +5351,7 @@
       "features_jp_clean": "義理人情に厚く正義感に満ちた人",
       "features_en_clean": "A person with a strong sense of loyalty, compassion, and justice.",
       "color_meaning_jp": "色言葉：中立不偏・保守的・伝統",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Neutrality, impartiality, conservatism, tradition",
       "keywords_en": [],
       "keywords_jp": [
         "中立不偏",
@@ -5398,7 +5398,7 @@
       "features_jp_clean": "仕事をそつなくこなす穏健派",
       "features_en_clean": "A moderate who handles their work competently.",
       "color_meaning_jp": "色言葉：穏健・快活・謙遜",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Moderate, cheerful, humble",
       "keywords_en": [],
       "keywords_jp": [
         "穏健",
@@ -5445,7 +5445,7 @@
       "features_jp_clean": "どんな障害にもたじろがない堅実派",
       "features_en_clean": "A steady and reliable person who doesn't flinch in the face of any obstacle.",
       "color_meaning_jp": "色言葉：実直・責任感・客観的",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: honesty, responsibility, objectivity",
       "keywords_en": [],
       "keywords_jp": [
         "実直",
@@ -5492,7 +5492,7 @@
       "features_jp_clean": "喜びを得るために猛進する行動派",
       "features_en_clean": "An action-oriented person who relentlessly pursues pleasure.",
       "color_meaning_jp": "色言葉：機知・誇り・良心",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Wit, pride, conscience",
       "keywords_en": [],
       "keywords_jp": [
         "機知",
@@ -5539,7 +5539,7 @@
       "features_jp_clean": "洞察力と技量を兼ね備えた人",
       "features_en_clean": "A person who possesses both insight and skill.",
       "color_meaning_jp": "色言葉：厳粛・誠実・技量",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: solemnity, sincerity, skill",
       "keywords_en": [],
       "keywords_jp": [
         "厳粛",
@@ -5586,7 +5586,7 @@
       "features_jp_clean": "清らかでキラキラした感性の持ち主",
       "features_en_clean": "Possesses a pure and sparkling sensibility.",
       "color_meaning_jp": "色言葉：規律・言葉づかい・愛情",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Discipline, manners of speech, love",
       "keywords_en": [],
       "keywords_jp": [
         "規律",
@@ -5633,7 +5633,7 @@
       "features_jp_clean": "常に率直な姿勢で臨む素直な人",
       "features_en_clean": "A straightforward person who always approaches things with an honest attitude.",
       "color_meaning_jp": "色言葉：温厚・誠意・センチメンタル",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Gentle, sincere, sentimental",
       "keywords_en": [],
       "keywords_jp": [
         "温厚",
@@ -5680,7 +5680,7 @@
       "features_jp_clean": "働くことが好きな人",
       "features_en_clean": "People who enjoy working",
       "color_meaning_jp": "色言葉：リーダーシップ・指導者",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Leadership/Instructor",
       "keywords_en": [],
       "keywords_jp": [
         "リーダーシップ",
@@ -5726,7 +5726,7 @@
       "features_jp_clean": "社会の信用を集めるしっかり者",
       "features_en_clean": "A reliable person who earns the trust of society.",
       "color_meaning_jp": "色言葉：調和・順応・人間関係",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Harmony, adaptability, human relationships",
       "keywords_en": [],
       "keywords_jp": [
         "調和",
@@ -5773,7 +5773,7 @@
       "features_jp_clean": "文学に心ひかれる優しい人",
       "features_en_clean": "A kind person who is drawn to literature.",
       "color_meaning_jp": "色言葉：優雅・優しさ・文学",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: elegance, gentleness, literature",
       "keywords_en": [],
       "keywords_jp": [
         "優雅",
@@ -5820,7 +5820,7 @@
       "features_jp_clean": "仕事に手ごたえを感じる挑戦者",
       "features_en_clean": "A challenger who finds satisfaction in their work.",
       "color_meaning_jp": "色言葉：繊細・スポーツ・時間",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meanings: Delicacy, Sports, Time",
       "keywords_en": [],
       "keywords_jp": [
         "繊細",
@@ -5867,7 +5867,7 @@
       "features_jp_clean": "才能を磨くことを忘れない努力家",
       "features_en_clean": "A hard worker who never forgets to hone their talents.",
       "color_meaning_jp": "色言葉：向上心・人のため・完成の喜び",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Ambition, helping others, joy of completion",
       "keywords_en": [],
       "keywords_jp": [
         "向上心",
@@ -5914,7 +5914,7 @@
       "features_jp_clean": "夢を求め、挑戦する人",
       "features_en_clean": "People who pursue their dreams and take on challenges",
       "color_meaning_jp": "色言葉：人生・経験・鍛錬",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Life, experience, training",
       "keywords_en": [],
       "keywords_jp": [
         "人生",
@@ -5961,7 +5961,7 @@
       "features_jp_clean": "多種多様な計画を生み出すアイデアマン",
       "features_en_clean": "An idea man who generates a wide variety of plans.",
       "color_meaning_jp": "色言葉：成熟・バランス・創意",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Maturity, balance, creativity",
       "keywords_en": [],
       "keywords_jp": [
         "成熟",
@@ -5978,7 +5978,7 @@
       "date_jp": "4月29日",
       "season": "Spring",
       "color_name_jp": "薄浅葱",
-      "color_name_en": "Lightly sliced ​​green onions",
+      "color_name_en": "Thin green onion",
       "pronunciation": "うすあさぎ",
       "hex": "#00A6AF",
       "rgb": {
@@ -6006,9 +6006,9 @@
       "features_jp": "特徴：ナイーブな心の持ち主",
       "features_en": "Characteristics: A naive person",
       "features_jp_clean": "ナイーブな心の持ち主",
-      "features_en_clean": "A naive person",
+      "features_en_clean": "Owner of a naïve mind ",
       "color_meaning_jp": "色言葉：ナイーブ・神秘性・癒し",
-      "color_meaning_en": "",
+      "color_meaning_en": "Naive, Mysterious, Healing",
       "keywords_en": [],
       "keywords_jp": [
         "ナイーブ",
@@ -6055,7 +6055,7 @@
       "features_jp_clean": "成長する人（満足することなく、妥協もしない人）",
       "features_en_clean": "A person who strives for growth (someone who is never satisfied and never compromises)",
       "color_meaning_jp": "色言葉：助け合い・行動・成長",
-      "color_meaning_en": "",
+      "color_meaning_en": "Color meaning: Mutual support, action, growth",
       "keywords_en": [],
       "keywords_jp": [
         "助け合い",
