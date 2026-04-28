@@ -194,5 +194,30 @@ document.addEventListener("DOMContentLoaded", async () => {
         setTimeout(() => {
             profileView.classList.add('fade-in');
         }, 100);
+
+        // Share Button Logic
+        const shareBtn = document.getElementById('share-btn');
+        if (shareBtn) {
+            shareBtn.onclick = async () => {
+                const shareData = {
+                    title: 'Tanjoshoku - My Japanese Birthday Color',
+                    text: `My Japanese Birthday Color is ${color.color_name_en} (${color.color_name_jp}) [Hex: ${color.hex}]. Discover yours!`,
+                    url: window.location.href.split('?')[0]
+                };
+                
+                try {
+                    if (navigator.share) {
+                        await navigator.share(shareData);
+                    } else {
+                        await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
+                        const originalText = shareBtn.innerHTML;
+                        shareBtn.innerHTML = '<span class="material-symbols-outlined text-lg" data-icon="check">check</span> COPIED!';
+                        setTimeout(() => shareBtn.innerHTML = originalText, 2000);
+                    }
+                } catch (err) {
+                    console.error('Error sharing:', err);
+                }
+            };
+        }
     }
 });
