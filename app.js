@@ -199,23 +199,53 @@ document.addEventListener("DOMContentLoaded", async () => {
         const shareBtn = document.getElementById('share-btn');
         if (shareBtn) {
             shareBtn.onclick = async () => {
-                const shareData = {
-                    title: 'Tanjoshoku - My Japanese Birthday Color',
-                    text: `My Japanese Birthday Color is ${color.color_name_en} (${color.color_name_jp}) [Hex: ${color.hex}]. Discover yours!`,
-                    url: window.location.href.split('?')[0]
-                };
-                
+                const originalText = shareBtn.innerHTML;
+                shareBtn.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin" data-icon="refresh">refresh</span> GENERATING...';
+                shareBtn.disabled = true;
+
                 try {
-                    if (navigator.share) {
+                    // Capture screenshot of the profile view
+                    const canvas = await html2canvas(document.getElementById('profile-view'), {
+                        backgroundColor: '#FCFAF5',
+                        scale: 2 // High quality
+                    });
+                    
+                    const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', 0.9));
+                    const file = new File([blob], 'tanjoshoku-color.jpg', { type: 'image/jpeg' });
+                    
+                    const shareData = {
+                        title: 'Tanjoshoku - My Japanese Birthday Color',
+                        text: `My Japanese Birthday Color is ${color.color_name_en} (${color.color_name_jp}) [Hex: ${color.hex}]. Discover yours!`,
+                        url: window.location.href.split('?')[0]
+                    };
+
+                    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                        shareData.files = [file];
                         await navigator.share(shareData);
+                        shareBtn.innerHTML = '<span class="material-symbols-outlined text-lg" data-icon="check">check</span> SHARED!';
+                    } else if (navigator.share) {
+                        // Fallback to text sharing if file sharing is not supported
+                        await navigator.share(shareData);
+                        shareBtn.innerHTML = '<span class="material-symbols-outlined text-lg" data-icon="check">check</span> SHARED!';
                     } else {
+                        // Fallback for Desktop: Copy text, and download image
                         await navigator.clipboard.writeText(`${shareData.text} ${shareData.url}`);
-                        const originalText = shareBtn.innerHTML;
-                        shareBtn.innerHTML = '<span class="material-symbols-outlined text-lg" data-icon="check">check</span> COPIED!';
-                        setTimeout(() => shareBtn.innerHTML = originalText, 2000);
+                        
+                        const a = document.createElement('a');
+                        a.href = URL.createObjectURL(blob);
+                        a.download = `tanjoshoku_${color.color_name_en.replace(/\s+/g, '_').toLowerCase()}.jpg`;
+                        a.click();
+                        
+                        shareBtn.innerHTML = '<span class="material-symbols-outlined text-lg" data-icon="check">check</span> SAVED & COPIED!';
                     }
                 } catch (err) {
                     console.error('Error sharing:', err);
+                    shareBtn.innerHTML = '<span class="material-symbols-outlined text-lg" data-icon="error">error</span> ERROR';
+                } finally {
+                    setTimeout(() => {
+                        shareBtn.innerHTML = originalText;
+                        shareBtn.disabled = false;
+                    }, 3000);
                 }
             };
         }
