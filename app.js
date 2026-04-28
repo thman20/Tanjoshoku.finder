@@ -155,7 +155,11 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.getElementById('profile-features').innerText = color.features_en_clean;
         
         // Find a description or just fallback to color meanings
-        document.getElementById('profile-desc').innerText = `Color meaning: ${color.keywords_en.join(', ')}.`;
+        const meaningsList = color.keywords_en && color.keywords_en.length > 0 
+            ? color.keywords_en 
+            : (color.keywords_jp || ['Unknown']);
+        
+        document.getElementById('profile-desc').innerText = `Color meaning: ${meaningsList.join(', ')}.`;
         
         document.getElementById('profile-hex').innerText = color.hex;
         document.getElementById('profile-rgb').innerText = `${color.rgb.r}, ${color.rgb.g}, ${color.rgb.b}`;
@@ -164,10 +168,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         colorPanel.style.backgroundColor = color.hex;
         
         // Calculate contrast color based on luminance
-        const hex = color.hex.replace('#', '');
-        const r = parseInt(hex.substring(0, 2), 16);
-        const g = parseInt(hex.substring(2, 4), 16);
-        const b = parseInt(hex.substring(4, 6), 16);
+        const hexStr = color.hex.replace('#', '');
+        const r = parseInt(hexStr.substring(0, 2), 16);
+        const g = parseInt(hexStr.substring(2, 4), 16);
+        const b = parseInt(hexStr.substring(4, 6), 16);
         const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
         const textColor = (yiq >= 128) ? '#1c1b1b' : '#ffffff';
         colorPanel.style.color = textColor;
@@ -175,7 +179,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Keywords
         const kwContainer = document.getElementById('profile-keywords');
         kwContainer.innerHTML = '';
-        color.keywords_en.forEach(kw => {
+        meaningsList.forEach(kw => {
             const span = document.createElement('span');
             span.className = 'px-4 py-1.5 border border-on-surface/20 text-on-surface font-label-caps text-label-caps bg-on-surface/5';
             span.innerText = kw.toUpperCase();
