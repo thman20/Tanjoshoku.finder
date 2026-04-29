@@ -40,4 +40,4 @@ Because the project relies on ES Modules and the `fetch()` API to read the `tanj
 
 ## 🎨 Data Source
 
-The color data is sourced from `tanjoshoku_colors.json`, containing 366 unique entries. Each entry provides the traditional Japanese name, English translation, associated season, hex/RGB values, and thematic keywords.
+The color data is sourced from `tanjoshoku_colors.json`, containing 366 unique entries. The data was sourced from [Birthday Color](http://birthday-color.cafein.jp/). Each entry provides the traditional Japanese name, English translation, associated season, hex/RGB values, and thematic keywords.
